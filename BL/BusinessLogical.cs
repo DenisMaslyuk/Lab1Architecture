@@ -9,19 +9,18 @@ namespace BL
 {
     public class BusinessLogical
     {
-        public List<Employee> Employees = new List<Employee>();
+        public List<Employee> Employees = new List<Employee>()
+        {
+            new Employee("Вова",20,40000,"frontend"),
+            new Employee("Петя",35,44000,"frontend"),
+            new Employee("Степа",25,50000,"backend"),
+            new Employee("Андрей",30,64000,"fullstack"),
+
+        };
 
         public void AddEmployee(string name, int age, int salary, string position)
         {
-            Employee employee = new Employee()
-            {
-                Name = name,
-                Age = age,
-                Salary = salary,
-                Position = position
-            };
-
-            Employees.Add(employee);
+            Employees.Add(new Employee(name,age,salary,position));
         }
 
 
@@ -53,6 +52,11 @@ namespace BL
         public void DeleteEmpForm(int id)
         {
             Employees.RemoveAt(id);
+        }
+
+        public int GetAvgAge()
+        {
+            return Employees.Select(em => em.Age).Sum() / Employees.Count;
         }
     }
 }

@@ -26,6 +26,7 @@ namespace ViewWin
             GridEmp.Columns[1].Name = "Age";
             GridEmp.Columns[2].Name = "Salary";
             GridEmp.Columns[3].Name = "Position";
+            UpdateTable();
         }
 
         private void ListEmp_SelectedIndexChanged(object sender, EventArgs e)
@@ -87,6 +88,11 @@ namespace ViewWin
                 businessLogical.Employees.ElementAt(id).Position = form.PositionBox.Text;
             }
             UpdateTable();
+        }
+
+        private void AvgAge_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(businessLogical.GetAvgAge().ToString());
         }
     }
 }

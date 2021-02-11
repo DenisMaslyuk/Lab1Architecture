@@ -15,5 +15,12 @@ namespace Model
 
         public string Position { get; set; }
 
+        public Employee(string Name,int Age,int Salary,string Position)
+        {
+            this.Name = Name;
+            this.Age = Age;
+            this.Salary = Salary;
+            this.Position = Position;
+        }
     }
 }

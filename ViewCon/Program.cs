@@ -13,14 +13,12 @@ namespace ViewCon
         static void Main(string[] args)
         {
             BusinessLogical businessLogical = new BusinessLogical();
-            businessLogical.AddEmployee("Валерий", 25, 30000, "Программист");
-            businessLogical.AddEmployee("Анатолий", 32, 45000, "Уборщик");
 
             int user = 0;
 
-            while (user != 6)
-            {
-                Console.WriteLine("Выберите действие: 1 - Добавить сотрудника, 2 - Получить список сотрудников, 3 - Уволить сотрудника, 4 - Повысить зарплату, 5 - Изменить должность, 6 - Закончить работу");
+            while (user != 7)
+            { 
+                Console.WriteLine("Выберите действие: 1 - Добавить сотрудника, 2 - Получить список сотрудников, 3 - Уволить сотрудника, 4 - Повысить зарплату, 5 - Изменить должность, 6 - средний возраст, 7 - Закончить работу");
                 user = Int32.Parse(Console.ReadLine());
 
                 if (user == 1)
@@ -77,7 +75,11 @@ namespace ViewCon
                         }
                     }
                 }
-               
+                if (user == 6)
+                {
+                    Console.WriteLine("Средний возраст: " + businessLogical.GetAvgAge());
+                }
+
             }
            
             Console.ReadKey();
